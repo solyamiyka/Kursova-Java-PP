@@ -1,0 +1,103 @@
+@font-face {
+    font-family: Quanty-Special-DEMO;
+    src: url(quanty-special-demo.ttf);
+}
+@font-face {
+    font-family: Lena;
+    src: url(Lena.ttf);
+}
+
+#labelSet{
+    -fx-font-size: 13;
+    -fx-font-family: Lena;
+}
+
+#totalSumOfTax{
+    -fx-font-size: 13;
+    -fx-font-family: Lena;
+}
+#title{
+    -fx-font-size: 28;
+    -fx-font-family: Lena;
+    -fx-font-allign: center;
+    -fx-font-weight: bold;
+}
+#labelChooseIncome{
+    -fx-font-size: 12;
+    -fx-font-family: Lena;
+}
+#labelInputSizeIncome{
+    -fx-font-size: 12;
+    -fx-font-family: Lena;
+}
+#labelInputRange{
+    -fx-font-size: 13;
+    -fx-font-family: Lena;
+}
+#labelWrittenToDb{
+    -fx-font-size: 15;
+    -fx-font-family: Lena;
+}
+#nameOfIncome{
+    -fx-font-size: 12;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#sizeOfIncome{
+    -fx-font-size: 12;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#sizeOfTax{
+    -fx-font-size: 12;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#percentageOfTax{
+    -fx-font-size: 12;
+    -fx-font-family: sans-serif;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button{
+    -fx-font-size: 12;
+    -fx-font-family: Quanty-Special-DEMO;
+    -fx-font-allign: center;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell{
+    -fx-background-color: #fc9fd0;
+    -fx-border-color: #fc9fd0;
+    -fx-table-cell-border-color: transparent;
+    -fx-text-fill: white;
+}
+.list-cell{
+    -fx-background-color: #fc9fd0;
+    -fx-border-color: #fc9fd0;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #FF69B4;
+}
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-alignment: left;
+    -fx-alignment: left;
+}
+.table-column{
+    -fx-alignment: center-left;
+}
+.table-view .column-header .label {
+    -fx-alignment: left;
+}

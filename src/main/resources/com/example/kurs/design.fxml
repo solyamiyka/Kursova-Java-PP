@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="570.0" prefWidth="855.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kurs.Controller">
+    <children>
+        <ImageView fitHeight="570.0" fitWidth="1032.0" layoutX="-98.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@bg.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="title" layoutX="343.0" layoutY="36.0" prefHeight="42.0" prefWidth="229.0" text="Work with taxes" textFill="WHITE">
+            <font>
+                <Font name="Univermag Regular" size="24.0" />
+            </font>
+        </Label>
+        <ListView fx:id="setOfTaxes" layoutX="754.0" layoutY="131.0" opacity="0.9" prefHeight="189.0" prefWidth="133.0" style="-fx-background-color: #fc9fd0;" />
+        <Label fx:id="labelSet" layoutX="754.0" layoutY="107.0" prefHeight="23.0" prefWidth="133.0" text="Set of taxes:" textFill="#fffdfd">
+            <font>
+                <Font name="Univermag-Regular" size="12.0" />
+            </font>
+        </Label>
+        <Label fx:id="totalSumOfTax" layoutX="232.0" layoutY="323.0" prefHeight="23.0" prefWidth="307.0" text="Total sum of taxes:" textFill="#fffdfd">
+            <font>
+                <Font name="Univermag-Regular" size="12.0" />
+            </font>
+        </Label>
+        <Button fx:id="searchTax" layoutX="443.0" layoutY="422.0" mnemonicParsing="false" onAction="#searchTax" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #FF69B4;" text="search by tax" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font></Button>
+        <AnchorPane layoutX="21.0" layoutY="95.0" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <ChoiceBox fx:id="choiceBox" layoutX="13.0" layoutY="50.0" prefHeight="28.0" prefWidth="160.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #FF69B4; -fx-border-width: 1.5;" />
+                <Label fx:id="labelInputSizeIncome" layoutX="15.0" layoutY="93.0" prefHeight="36.0" prefWidth="144.0" text="Input size of income" textFill="WHITE">
+               <font>
+                  <Font name="Quanty-Special-DEMO" size="12.0" />
+               </font></Label>
+                <TextField fx:id="sizeIncome" layoutX="15.0" layoutY="125.0" opacity="0.9" prefWidth="160.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #FF69B4; -fx-border-width: 1.5;" />
+                <Button fx:id="addTax" layoutX="61.0" layoutY="170.0" mnemonicParsing="false" onAction="#addTax" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #FF69B4;" text="add tax" textFill="WHITE" />
+            <Label fx:id="labelChooseIncome" layoutX="15.0" layoutY="18.0" prefHeight="36.0" prefWidth="144.0" text="Choose name of income" textFill="WHITE">
+               <font>
+                  <Font name="Quanty-Special-DEMO" size="12.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+        <TableView fx:id="table" centerShape="false" layoutX="232.0" layoutY="107.0" nodeOrientation="LEFT_TO_RIGHT" opacity="0.9" prefHeight="213.0" prefWidth="503.0" scaleShape="false">
+            <columns>
+                <TableColumn fx:id="nameOfIncome" prefWidth="128.6666717529297" text="Name" />
+                <TableColumn fx:id="sizeOfIncome" minWidth="2.666656494140625" prefWidth="136.00003051757812" text="Size of income" />
+                <TableColumn fx:id="percentageOfTax" prefWidth="112.00009155273438" text="Percentage" />
+                <TableColumn fx:id="sizeOfTax" prefWidth="120.6666259765625" text="Size of tax" />
+            </columns>
+        </TableView>
+        <ImageView fitHeight="312.0" fitWidth="316.0" layoutX="554.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@case.png" />
+            </image>
+        </ImageView>
+      <Button fx:id="searchInc" layoutX="309.0" layoutY="422.0" mnemonicParsing="false" onAction="#searchInc" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #FF69B4;" text="search by inc" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="sortAsc" layoutX="243.0" layoutY="364.0" mnemonicParsing="false" onAction="#sortAsc" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #FF69B4;" text="sort by asc" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="sortDesc" layoutX="375.0" layoutY="364.0" mnemonicParsing="false" onAction="#sortDesc" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #FF69B4;" text="sort by desc" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="rangeA" layoutX="41.0" layoutY="368.0" opacity="0.9" prefHeight="28.0" prefWidth="69.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #FF69B4; -fx-border-width: 1.5;" />
+      <Label fx:id="labelInputRange" layoutX="41.0" layoutY="333.0" prefHeight="36.0" prefWidth="160.0" text="Input range for searching" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rangeB" layoutX="131.0" layoutY="368.0" opacity="0.9" prefHeight="28.0" prefWidth="69.0" style="-fx-background-radius: 3; -fx-border-radius: 3; -fx-border-color: #FF69B4; -fx-border-width: 1.5;" />
+      <Button fx:id="submit" layoutX="86.0" layoutY="411.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #FF69B4;" text="submit" textFill="WHITE" />
+      <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="292.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@coin2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="45.0" fitWidth="43.0" layoutX="577.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@coin1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="writeToDB" layoutX="504.0" layoutY="364.0" mnemonicParsing="false" onAction="#writeToDB" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #FF69B4;" text="write to db" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelWrittenToDb" layoutX="41.0" layoutY="485.0" prefHeight="36.0" prefWidth="465.0" text="Data from table was successfully written to DataBase!" textFill="WHITE">
+         <font>
+            <Font name="Quanty-Special-DEMO" size="12.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
