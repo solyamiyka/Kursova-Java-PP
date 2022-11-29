@@ -14,7 +14,7 @@ public class DataBase {
 
     static final String DB_URL = "jdbc:mysql://localhost:3306/taxes";
     static final String USER = "solyamiya";
-    static final String PASS = "11Solya@01";
+    static final String PASS = "**********";
 
     public static ArrayList<Income> getTaxesDB() {
         ArrayList<Income> taxes = new ArrayList<>();
