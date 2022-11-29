@@ -19,7 +19,10 @@ public class DataBase {
     public static ArrayList<Income> getTaxesDB() {
         ArrayList<Income> taxes = new ArrayList<>();
         Income newTax;
-        String QUERY = "SELECT nameOftaxes, sizeOfIncome, percentageOfTax, sizeOfTax FROM taxes";
+
+        String QUERY = "SELECT incomeInfo.incomeName, incomeInfo.incomeSize, taxesInfo.percentage, taxesInfo.taxSize\n" +
+                "FROM incomeInfo\n" +
+                "INNER JOIN taxesInfo ON taxesInfo.income_id = incomeInfo.incomeId ;";
 
         try (
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -27,16 +30,16 @@ public class DataBase {
                 ResultSet rs = stmt.executeQuery(QUERY)
         ) {
             while (rs.next()) {
-                System.out.print("Name: " + rs.getString("nameOftaxes"));
-                System.out.print(",Size of income: " + rs.getDouble("sizeOfIncome"));
-                System.out.print(", Size of Tax: " + rs.getDouble("sizeOfTax"));
-                System.out.println(", Percentage of Tax: " + rs.getDouble("percentageOfTax"));
+                System.out.print("Name: " + rs.getString("incomeName"));
+                System.out.print(",Size of income: " + rs.getDouble("incomeSize"));
+                System.out.print(", Size of Tax: " + rs.getDouble("taxSize"));
+                System.out.println(", Percentage of Tax: " + rs.getDouble("percentage"));
 
                 newTax = new Income();
-                newTax.setNameOfIncome(rs.getString("nameOftaxes"));
-                newTax.setSizeOfIncome(rs.getDouble("sizeOfIncome"));
-                newTax.setSizeOfTax(rs.getDouble("sizeOfTax"));
-                newTax.setPercentageOfTax(rs.getDouble("percentageOfTax"));
+                newTax.setNameOfIncome(rs.getString("incomeName"));
+                newTax.setSizeOfIncome(rs.getDouble("incomeSize"));
+                newTax.setSizeOfTax(rs.getDouble("taxSize"));
+                newTax.setPercentageOfTax(rs.getDouble("percentage"));
 
                 taxes.add(newTax);
             }
@@ -47,17 +50,27 @@ public class DataBase {
         return taxes;
     }
     public static void writeTaxesInDB(List<Income> taxes) {
-        String QUERY_CLEAR = "TRUNCATE TABLE taxes";
-        String QUERY_INSERT;
+        String QUERY_CLEAR1 = "TRUNCATE TABLE taxess;";
+        String QUERY_CLEAR2 =  "TRUNCATE TABLE incomem;";
+
+        String QUERY_INSERT1, QUERY_INSERT2;
 
         try(
                 Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();
         ) {
-            stmt.executeUpdate(QUERY_CLEAR);
+            stmt.executeUpdate(QUERY_CLEAR1);
+            stmt.executeUpdate(QUERY_CLEAR2);
+
+            int id = 1;
             for (Income tax : taxes) {
-                QUERY_INSERT = "INSERT INTO taxes VALUES ('" + tax.getNameOfIncome() + "', " + tax.getSizeOfIncome() + ", " + tax.getPercentageOfTax() + ", " + tax.getSizeOfTax() + ")";
-                stmt.executeUpdate(QUERY_INSERT);
+                QUERY_INSERT1 = "INSERT INTO taxess VALUES (" + id + "," + tax.getSizeOfTax() + ", " + tax.getPercentageOfTax() + ", " + id +  ");\n";
+
+                QUERY_INSERT2 ="INSERT INTO incomem VALUES (" + id + ",'" + tax.getNameOfIncome() + "', " + tax.getSizeOfIncome() + ")";
+
+                stmt.executeUpdate(QUERY_INSERT1);
+                stmt.executeUpdate(QUERY_INSERT2);
+                id++;
             }
 
         } catch (SQLException e) {
