@@ -50,8 +50,8 @@ public class DataBase {
         return taxes;
     }
     public static void writeTaxesInDB(List<Income> taxes) {
-        String QUERY_CLEAR1 = "TRUNCATE TABLE taxess;";
-        String QUERY_CLEAR2 =  "TRUNCATE TABLE incomem;";
+        String QUERY_CLEAR1 = "TRUNCATE TABLE taxesInfo;";
+        String QUERY_CLEAR2 =  "TRUNCATE TABLE incomeInfo;";
 
         String QUERY_INSERT1, QUERY_INSERT2;
 
@@ -64,9 +64,9 @@ public class DataBase {
 
             int id = 1;
             for (Income tax : taxes) {
-                QUERY_INSERT1 = "INSERT INTO taxess VALUES (" + id + "," + tax.getSizeOfTax() + ", " + tax.getPercentageOfTax() + ", " + id +  ");\n";
+                QUERY_INSERT1 = "INSERT INTO taxesInfo VALUES (" + id + "," + tax.getSizeOfTax() + ", " + tax.getPercentageOfTax() + ", " + id +  ");\n";
 
-                QUERY_INSERT2 ="INSERT INTO incomem VALUES (" + id + ",'" + tax.getNameOfIncome() + "', " + tax.getSizeOfIncome() + ")";
+                QUERY_INSERT2 ="INSERT INTO incomeInfo VALUES (" + id + ",'" + tax.getNameOfIncome() + "', " + tax.getSizeOfIncome() + ")";
 
                 stmt.executeUpdate(QUERY_INSERT1);
                 stmt.executeUpdate(QUERY_INSERT2);
